@@ -84,3 +84,22 @@ limit = 500
 # Menjalankan proses scraping dengan tweet-harvest
 !npx -y tweet-harvest@2.6.1 -o "{filename}" -s "{search_keyword}" --tab "LATEST" -l {limit} --token {twitter_auth_token}
 '''
+### 4. Membaca dan Menampilkan Hasil Ekstraksi
+Setelah proses *scraping* selesai, data akan secara otomatis tersimpan di dalam direktori `tweets-data`. Langkah terakhir ini menggunakan *library* Pandas untuk memuat file CSV tersebut ke dalam DataFrame, menampilkan pratinjau tabel datanya, serta menghitung total tweet yang berhasil ditarik.
+
+```python
+import pandas as pd
+
+# Menentukan jalur file CSV hasil crawling
+file_path = f"tweets-data/{filename}"
+
+# Membaca data ke dalam DataFrame Pandas
+df = pd.read_csv(file_path)
+
+# Menampilkan pratinjau data
+display(df)
+
+# Menampilkan total tweet yang berhasil diambil
+num_tweets = len(df)
+print(f'Jumlah tweet yang berhasil diekstrak adalah: {num_tweets}')
+```
