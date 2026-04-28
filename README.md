@@ -1,5 +1,5 @@
 # web-scrapper-twitter-basic
-it's not optimal scrapper you know. Some data may not record in the output file but you can try. 
+it's not an optimal scrapper. Some data may not record in the output file but you can try more than one 'run'. 
 
 
 # 🐦 Twitter/X Web Scraper menggunakan Tweet-Harvest
@@ -55,7 +55,7 @@ Proses ini akan menginstal `pandas` untuk pengolahan data dan mengonfigurasi Nod
 ### 3. Konfigurasi dan Eksekusi web scrapper
 Tentukan parameter scraping Anda, seperti nama file output, batas jumlah data (limit), dan kata kunci pencarian. Setelah itu, instal browser engine dan jalankan proses crawling.
 
- ``` python
+```
 # Menentukan nama file output dan ID Tweet target
 filename = 'data.csv'
 #target_id bisa diganti
@@ -83,7 +83,8 @@ limit = 500
 
 # Menjalankan proses scraping dengan tweet-harvest
 !npx -y tweet-harvest@2.6.1 -o "{filename}" -s "{search_keyword}" --tab "LATEST" -l {limit} --token {twitter_auth_token}
-'''
+```
+
 ### 4. Membaca dan Menampilkan Hasil Ekstraksi
 Setelah proses *scraping* selesai, data akan secara otomatis tersimpan di dalam direktori `tweets-data`. Langkah terakhir ini menggunakan *library* Pandas untuk memuat file CSV tersebut ke dalam DataFrame, menampilkan pratinjau tabel datanya, serta menghitung total tweet yang berhasil ditarik.
 
