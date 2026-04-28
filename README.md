@@ -49,6 +49,7 @@ Proses ini akan menginstal `pandas` untuk pengolahan data dan mengonfigurasi Nod
 
 # Cek versi Node.js untuk memastikan instalasi berhasil
 !node -v
+```
 
 
 ### 3. Konfigurasi dan Eksekusi web scrapper
