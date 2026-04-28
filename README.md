@@ -49,3 +49,35 @@ Proses ini akan menginstal `pandas` untuk pengolahan data dan mengonfigurasi Nod
 
 # Cek versi Node.js untuk memastikan instalasi berhasil
 !node -v
+
+
+### 3. Konfigurasi dan Eksekusi web scrapper
+Tentukan parameter scraping Anda, seperti nama file output, batas jumlah data (limit), dan kata kunci pencarian. Setelah itu, instal browser engine dan jalankan proses crawling.
+
+# Menentukan nama file output dan ID Tweet target
+filename = 'data.csv'
+#target_id bisa diganti
+target_id = '2040575505964191995' 
+
+
+# Jika ingin memastikan balasannya hanya bahasa Indonesia:
+search_keyword = f"conversation_id:{target_id} lang:id"
+
+# Mencari tweet tentang "pemilu" dari 1 Januari 2024 sampai 14 Februari 2024
+#search_keyword = "pemilu since:2024-01-01 until:2024-02-14"
+
+# Mencari kata spesifik
+#search_keyword = "kecerdasan buatan"
+
+# Mencari hashtag
+#search_keyword = "#teknologi"
+
+# Mencari kata "banjir" khusus dalam bahasa Indonesia
+#search_keyword = "banjir lang:id"
+limit = 500
+
+# Install dependencies untuk browser engine bawaan (Playwright)
+!npx playwright install-deps
+
+# Menjalankan proses scraping dengan tweet-harvest
+!npx -y tweet-harvest@2.6.1 -o "{filename}" -s "{search_keyword}" --tab "LATEST" -l {limit} --token {twitter_auth_token}
