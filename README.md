@@ -24,3 +24,27 @@ Masukkan *auth token* Twitter Anda ke dalam *script*.
 
 ```python
 twitter_auth_token = "MASUKKAN_AUTH_TOKEN_ANDA_DI_SINI"
+
+### 2. Instalasi Dependensi (Python & Node.js)
+Proses ini akan menginstal `pandas` untuk pengolahan data dan mengonfigurasi Node.js (versi 20) yang menjadi syarat berjalannya `tweet-harvest`. Jalankan perintah berikut di dalam sel notebook Anda:
+
+```bash
+# Install Pandas
+!pip install pandas
+
+# Update apt-get dan install sertifikat yang dibutuhkan
+!sudo apt-get update
+!sudo apt-get install -y ca-certificates curl gnupg
+
+# Menambahkan GPG Key NodeSource
+!curl -fsSL [https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key](https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key) | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+# Menambahkan repository Node.js v20
+!NODE_MAJOR=20 && echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] [https://deb.nodesource.com/node_$NODE_MAJOR.x](https://deb.nodesource.com/node_$NODE_MAJOR.x) nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+# Install Node.js
+!sudo apt-get update
+!sudo apt-get install nodejs -y
+
+# Cek versi Node.js untuk memastikan instalasi berhasil
+!node -v
