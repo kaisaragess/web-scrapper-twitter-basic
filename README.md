@@ -24,6 +24,7 @@ Masukkan *auth token* Twitter Anda ke dalam *script*.
 
 ```python
 twitter_auth_token = "MASUKKAN_AUTH_TOKEN_ANDA_DI_SINI"
+```
 
 ### 2. Instalasi Dependensi (Python & Node.js)
 Proses ini akan menginstal `pandas` untuk pengolahan data dan mengonfigurasi Node.js (versi 20) yang menjadi syarat berjalannya `tweet-harvest`. Jalankan perintah berikut di dalam sel notebook Anda:
